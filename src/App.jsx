@@ -3,23 +3,22 @@
 import React, { useState, useCallback } from 'react';
 import SearchBar from './components/SearchBar';
 import ResultsList from './components/ResultsList';
-import Pagination from './components/Pagination'; // 1. Importar paginación
+import Pagination from './components/Pagination'; 
 import Banner from './components/Banner';
 
-const API_BASE_URL = 'https://backend-scraper-alguileres-production.up.railway.app';
-const ITEMS_PER_PAGE = 20; // 2. Definir cuántos items por página
-
+const API_BASE_URL = 'https://backend-scraper-alguileres.onrender.com';
+const ITEMS_PER_PAGE = 20; 
 function App() {
-  const [allResults, setAllResults] = useState([]); // 3. Renombrado a "allResults"
+  const [allResults, setAllResults] = useState([]); 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [hasSearched, setHasSearched] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1); // 4. Nuevo estado para la página
+  const [currentPage, setCurrentPage] = useState(1); 
 
   const handleSearch = useCallback(async (formData) => {
     setIsLoading(true);
     setError(null);
-    setAllResults([]); // Limpiar resultados anteriores
+    setAllResults([]); 
     setHasSearched(true);
 
     const params = new URLSearchParams();
